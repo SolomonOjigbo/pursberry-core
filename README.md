@@ -55,6 +55,22 @@ Requires Node 22.12+ (`.nvmrc`), pnpm 10, Docker, and `psql` on PATH.
 pnpm install
 ```
 
+**Generate the Prisma client before doing anything else that typechecks.**
+`pnpm install` does not do this automatically — the client is generated to a
+custom path (`packages/db/generated/client`, gitignored on purpose since
+it's generated code), and nothing hooks that into install. Skipping this is
+the #1 cause of `Cannot find module '../generated/client/index.js'` on a
+fresh clone or a new coding-agent session:
+
+```bash
+pnpm db:generate
+```
+
+This only reads `packages/db/prisma/schema.prisma` — no Docker or database
+connection needed, so do it right after `pnpm install`, before `pnpm
+typecheck`. CI runs this same step explicitly for the same reason (see
+`.github/workflows/ci.yml`).
+
 ```bash
 cp .env.example .env
 ```
@@ -91,7 +107,7 @@ pnpm dev
 | `pnpm dev:admin`       | Super-admin panel on `:5174`          |
 | `pnpm dev:pos-desktop` | Electron POS (renderer on `:5175`)    |
 
-Verify everything the way CI does:
+Verify everything the way CI does (assumes `pnpm db:generate` has already been run — see First run above):
 
 ```bash
 pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build
