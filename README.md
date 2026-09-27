@@ -15,8 +15,11 @@ VAT) — see [Data model notes](docs/DATA-MODEL.md) for the two rules every
 new tenant-scoped table must follow, regardless of which product it belongs
 to.
 
-- [Development plan](pursberry-development-plan.md) — architecture, scope decisions, phased delivery
-- [Sprint backlog](pursberry-sprint-backlog.md) — ticket-level breakdown with acceptance criteria
+- [Development plan](pursberry-development-plan.md) — Inventory-POS architecture, scope decisions, phased delivery
+- [Sprint backlog](pursberry-sprint-backlog.md) — Inventory-POS ticket-level breakdown with acceptance criteria
+- [Business Suite PRD](pursberry-business-suite-prd.md) — Business Suite scope, alignment with Inventory-POS, open design questions
+- [Business Suite sprint backlog](pursberry-business-suite-sprint-backlog.md) — Business Suite ticket-level breakdown with acceptance criteria
+- [Implementation blueprint](pursberry-implementation-blueprint.md) — master 3-phase build sequence across both products plus new cross-product modules — start here if you're an AI coding agent picking up this repo cold
 - [Data model notes](docs/DATA-MODEL.md) — invariants every new table has to keep
 
 ## Layout
