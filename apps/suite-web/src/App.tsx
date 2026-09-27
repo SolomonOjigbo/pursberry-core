@@ -7,7 +7,7 @@ import { AppShell } from '@pursberry/ui';
  */
 export function App() {
   return (
-    <AppShell title="Pursberry Business Suite">
+    <AppShell surface="suite" title="Pursberry Business Suite">
       <p>Suite modules land here as their tickets are scoped (finance, payroll, CRM).</p>
     </AppShell>
   );
