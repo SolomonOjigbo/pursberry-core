@@ -28,6 +28,14 @@
 - Unbalanced entries must be rejected at write time (ACC-102), enforced in the posting function rather than trusted to callers.
 - Posting is a side effect of an operational event, never a separate user action — a sale, GRN, payment or adjustment writes its journal entry in the same transaction that writes the operational rows. If the two can fail independently, they will.
 
+### Payroll & CRM — Pursberry Business Suite (SUITE-1xx, SUITE-2xx)
+
+`employees`, `payslips`, `crm_contacts`, `crm_pipeline_stages`.
+
+- These follow the same five rules above — `tenant_id`, an RLS policy landed in the same migration, an index on `tenant_id`, minor-unit money, base-unit quantities. There is no separate rule set for Suite tables; they read and post through the same `chart_of_accounts` / `journal_entries` as Inventory-POS.
+- `payslips` posts to the ledger the same way a POS sale does: the payroll run and its journal entry are written in one transaction, not two.
+- Not designed yet: PAYE band/relief structure (`packages/shared/src/paye.ts` is a stub) and how a payslip's statutory deductions map to Chart of Accounts lines.
+
 ### Sales & POS (POS-1xx)
 
 `sales_orders`, `sales_lines`, `payments`, `refunds`, `pos_shifts`, `cash_drops`.

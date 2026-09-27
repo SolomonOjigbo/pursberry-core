@@ -7,7 +7,8 @@ import { z } from 'zod';
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   API_PORT: z.coerce.number().int().positive().default(4000),
-  WEB_URL: z.string().url().default('http://localhost:5173'),
+  POS_WEB_URL: z.string().url().default('http://localhost:5173'),
+  SUITE_WEB_URL: z.string().url().default('http://localhost:5176'),
   ADMIN_URL: z.string().url().default('http://localhost:5174'),
 
   DATABASE_URL: z.string().min(1, 'DATABASE_URL is required — copy .env.example to .env'),

@@ -32,7 +32,7 @@ export default tseslint.config(
     },
   },
   {
-    files: ['apps/web/**/*.{ts,tsx}', 'apps/admin/**/*.{ts,tsx}', 'packages/ui/**/*.{ts,tsx}'],
+    files: ['apps/pos-web/**/*.{ts,tsx}', 'apps/suite-web/**/*.{ts,tsx}', 'apps/admin/**/*.{ts,tsx}', 'packages/ui/**/*.{ts,tsx}'],
     languageOptions: {
       globals: { ...globals.browser },
     },

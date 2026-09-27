@@ -1,18 +1,19 @@
 {
-  "name": "pursberry",
+  "name": "pursberry-core",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "description": "Multi-tenant SaaS POS, inventory & double-entry accounting for Nigerian retail/wholesale MSMEs",
+  "description": "Pursberry Core monorepo — shared backend for Pursberry Business Suite (SME finance/tax/payroll/CRM) and Pursberry Inventory-POS (retail/wholesale POS)",
   "packageManager": "pnpm@10.33.0",
   "engines": {
     "node": ">=22.12.0"
   },
   "scripts": {
     "dev": "pnpm --filter @pursberry/api dev",
-    "dev:web": "pnpm --filter @pursberry/web dev",
+    "dev:pos-web": "pnpm --filter @pursberry/pos-web dev",
+    "dev:suite-web": "pnpm --filter @pursberry/suite-web dev",
     "dev:admin": "pnpm --filter @pursberry/admin dev",
-    "dev:desktop": "pnpm --filter @pursberry/desktop dev",
+    "dev:pos-desktop": "pnpm --filter @pursberry/pos-desktop dev",
     "build": "pnpm -r build",
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm -r test",

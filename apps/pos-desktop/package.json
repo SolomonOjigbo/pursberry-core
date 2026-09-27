@@ -1,5 +1,5 @@
 {
-  "name": "@pursberry/desktop",
+  "name": "@pursberry/pos-desktop",
   "version": "0.0.0",
   "private": true,
   "description": "Pursberry offline-first POS terminal (Electron)",
